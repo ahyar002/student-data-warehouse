@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: sources
+    database: dbt_staging
+    schema: student
+    tables:
+      - name: exam_result
+        columns:
+          - name: exam_result_id
+            tests:
+              - unique
+              - not_null
+      - name: student
+        columns:
+          - name: student_id
+            tests:
+              - relationships:
+                  to: source('sources', 'exam_result')
+                  field: student_id
+      - name: subject
+      - name: teacher
+      - name: teacher_mapping

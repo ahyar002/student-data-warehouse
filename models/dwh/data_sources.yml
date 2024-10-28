@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: dwh
+    database: dbt_db
+    schema: dbt_schema
+    tables:
+      - name: dim_student
+        
